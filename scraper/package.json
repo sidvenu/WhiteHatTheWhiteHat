@@ -1,0 +1,15 @@
+{
+  "name": "scraper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Siddharth Venu",
+  "license": "MIT",
+  "dependencies": {
+    "google-play-scraper": "^8.0.2",
+    "stdio": "^2.1.1"
+  }
+}
