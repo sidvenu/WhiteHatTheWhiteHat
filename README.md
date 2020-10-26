@@ -35,6 +35,10 @@ Note:
 - Similarity Group - a group of similar reviews
 - 'similarity group' sizes - list of sizes of similarity groups.
 
+## How is similarity computed?
+
+This tool currently uses the [TF-IDF cosine similarity](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) as the similarity score of two reviews. If similarity score of two reviews is above the `similarity_threshold`, which is currently defined to be `0.8`, then they are put together in the same group.
+
 ## Disclaimer
 
 This tool and the analysis of WhiteHat Jr.'s app was made for educational purposes only. The analysis/findings given above is not to be taken as the truth, and may have errors of its own. Each reader of the above findings is solely responsible for their derived conclusions and subsequent actions, and the author (Siddharth Venu) cannot be held liable for the same.
