@@ -11,5 +11,5 @@ gplay.reviews({
     sort: gplay.sort.RATING,
     num: 100000
 }).then((data) => {
-    fs.writeFileSync("../reviews.json", JSON.stringify(data), "utf-8");
+    fs.writeFileSync("../play-store-reviews.json", JSON.stringify(data), "utf-8");
 });
