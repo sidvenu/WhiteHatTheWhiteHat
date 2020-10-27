@@ -6,6 +6,7 @@ def normalize_review(review: dict):
     review["text"] = review.pop("review")
     review["score"] = review.pop("rating")
     review["date"] = review["date"].timestamp()
+    review["id"] = f"{review['date']}-{review['userName']}"
     return review
 
 
