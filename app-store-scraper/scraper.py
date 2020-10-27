@@ -11,7 +11,7 @@ def normalize_review(review: dict):
 
 
 def scrape_data():
-    app_info = AppStore(app_name="WhiteHat Jr: Online Coding", country="in")
+    app_info = AppStore(app_name=input("Enter name of the app in the App Store: "), country="in")
     app_info.review(how_many=3000)
     reviews = list(map(lambda review: normalize_review(review), app_info.reviews))
     f = open("../app-store-reviews.json", "w")
