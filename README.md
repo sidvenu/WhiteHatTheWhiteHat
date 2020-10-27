@@ -4,24 +4,27 @@ I wrote this tool to analyse the allegations of fake reviews against WhiteHat Jr
 
 ## Structure
 
-It consists of a `scraper`, which pulls in the reviews data from Google Play Store and stores it in [reviews.json](reviews.json)
-, and `analysis`, which analyses the similarity of reviews and stores the results in 3 files - [groups.json](analysis/groups.json), [low_probability_fakes.json](analysis/low_probability_fakes.json) and [high_probability_fakes.json](analysis/high_probability_fakes.json). Currently, all of the previously linked files contains the analysis of [WhiteHat Jr.'s app](https://play.google.com/store/apps/details?id=com.whitehatjr).
+- **play-store-scraper** - pulls review data from Google Play Store, stores in [play-store-reviews.json](play-store-reviews.json).
+- **app-store-scraper** - pulls review data from App Store, stores in [app-store-reviews.json](app-store-reviews.json).
+- **analysis** - takes in review data *(we can pass in any of the above two reviews.json)*, outputs 3 files - `*-groups.json`, `*-low-probability-fakes.json` and `*-high-probability-fakes.json`.
 
-### [groups.json](analysis/groups.json)
+### *-groups.json
 
 This file has a JSON 'Array of Arrays', with each element in the root array representing a 'group'. This grouping is done on the basis of 'similarity'.
 
-### [low_probability_fakes.json](analysis/low_probability_fakes.json)
+### *-low-probability-fakes.json
 
 This file is a filter from groups.json, having 20+ similar reviews in each 'group'. Since this can contain reviews like "Good App" that many people actually type, this is a list of 'low probability' fake reviews.
 
-### [high_probability_fakes.json](analysis/high_probability_fakes.json)
+### *-high-probability-fakes.json
 
 This file is a filter from groups.json, having 2 or more similar reviews in each 'group' and each group containing 10+ words. Since this contains only 'long reviews' that are matching, this is a list of 'high probability' fake reviews.
 
 ## Analysis of com.whitehatjr
 
-They seem to have 67 high probability fake reviews, and 1567 low probability fake reviews.
+## Google Play Store
+
+They seem to have 67 high probability fake reviews and 1567 low probability fake reviews out of total 7674 reviews.
 
 Their high probability fake reviews has the following 'similarity group' sizes:
 
@@ -30,6 +33,19 @@ Their high probability fake reviews has the following 'similarity group' sizes:
 Their low probability fake reviews has the following 'similarity group' sizes:
 
 `[145, 215, 114, 28, 26, 33, 24, 63, 52, 55, 65, 392, 27, 46, 21, 60, 29, 24, 48, 24, 36, 40]`
+
+## App Store
+
+They seem to have 455 high probability fake reviews and 0 low probability fake reviews out of total 2446 reviews.
+
+Their high probability fake reviews has the following 'similarity group' sizes:
+
+`[3, 2, 3, 2, 2, 2, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 2, 2, 3, 2, 3, 5, 2, 2, 2, 2, 3, 3, 4, 2, 2, 2, 2, 2, 5, 3, 2, 4, 2, 2, 2, 2, 2, 2, 2, 5, 2, 2, 2, 2, 2, 3, 2, 2, 3, 2, 2, 2, 2, 2, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 2, 2, 4, 2, 2, 2, 3, 2, 2, 2, 2, 2, 2, 2, 3, 2, 2, 2, 3, 3, 2, 3, 3, 3, 3, 2, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 2, 2, 2, 2, 3, 2, 4, 2, 3, 2, 2, 2, 3, 2, 2, 2, 2, 2, 2, 2, 2, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]`
+
+Their low probability fake reviews has the following 'similarity group' sizes:
+
+`[]`
+
 
 Note:
 - Similarity Group - a group of similar reviews
